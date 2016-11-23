@@ -84,7 +84,6 @@ func (rb *Robots) RobotGenerateString() string {
 	if len(rb.UserAgent.AgentName) != 0 {
 		robotstxt += "User-agent: " + rb.UserAgent.AgentName + "\n"
 		if len(rb.Allow) != 0 {
-			robotstxt += "\n"
 			for _, v := range rb.Allow {
 				robotstxt += "Allow: " + v.Url + "\n"
 			}
@@ -98,7 +97,6 @@ func (rb *Robots) RobotGenerateString() string {
 		}
 
 		if len(rb.Sitemap) != 0 {
-			robotstxt += "\n"
 			for _, v := range rb.Sitemap {
 				robotstxt += "Sitemap: " + v.Url + "\n"
 			}
