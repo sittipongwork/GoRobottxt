@@ -60,7 +60,6 @@ example
   //That will be ...
   //Sitemap: https://website.com/profiles-sitemap.xml
   robot.AddSitemapUrl("https://website.com/profiles-sitemap.xml")
-
 ```
 
 ### Generate Robot Container to string
