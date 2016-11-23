@@ -49,7 +49,7 @@ type SitemapRobot struct {
 
 func CreateRobot() *Robots {
 	rb := &Robots{}
-	rb.UserAgent = &Agent{}
+	rb.UserAgent = &Agent{AgentName: ""}
 	rb.Allow = []AllowRobot{}
 	rb.Disallow = []DisallowRobot{}
 	return rb
@@ -83,8 +83,29 @@ func (rb *Robots) RobotGenerateString() string {
 	robotstxt := ""
 	if len(rb.UserAgent.AgentName) != 0 {
 		robotstxt += "User-agent: " + rb.UserAgent.AgentName + "\n"
+		if len(rb.Allow) != 0 {
+			robotstxt += "\n"
+			for _, v := range rb.Allow {
+				robotstxt += "Allow: " + v.Url + "\n"
+			}
+		}
+
+		if len(rb.Disallow) != 0 {
+			robotstxt += "\n"
+			for _, v := range rb.Disallow {
+				robotstxt += "Disallow: " + v.Url + "\n"
+			}
+		}
+
+		if len(rb.Sitemap) != 0 {
+			robotstxt += "\n"
+			for _, v := range rb.Sitemap {
+				robotstxt += "Sitemap: " + v.Url + "\n"
+			}
+		}
 	} else {
-		robotstxt += "You dont have permission who user agent: https://github.com/sittipongwork#adduseragent"
+		robotstxt += "You dont have permission who user agent: https://github.com/sittipongwork/GoRobottxt#add-useragent-to-robot-container\n"
 	}
+
 	return robotstxt
 }
