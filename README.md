@@ -36,6 +36,41 @@ example
   robot.AddUserAgent("*")
 ```
 
+### Add Allow & Disallow & Sitemap
+Add Content robots.txt to RobotContainer
+
+example
+```go
+  //Add Allowed URL for robot can access.
+  //That will be ...
+  //Allow: /blog/*
+  robot.AddAllowUrl("/blog/*")
+
+  //Add Disallow URL for robot can't access.
+  //That will be ...
+  //Disallow: /admin/*
+  robot.AddDisallowUrl("/admin/*")
+
+  //Add Sitemap Url Website.
+  //That will be ...
+  //Sitemap: https://website.com/blog-sitemap.xml
+  robot.AddSitemapUrl("https://website.com/blog-sitemap.xml")
+
+  //Add Sitemap Url Website.
+  //That will be ...
+  //Sitemap: https://website.com/profiles-sitemap.xml
+  robot.AddSitemapUrl("https://website.com/profiles-sitemap.xml")
+
+```
+
+### Generate Robot Container to string
+example
+```go
+  //Generate Robots Container to String.
+  robottxt := robot.RobotGenerateString()
+```
+
+### Full Example
 example
 ```go
 //Create Robot Container.
@@ -70,7 +105,7 @@ robot.AddSitemapUrl("https://website.com/blog-sitemap.xml")
 //Sitemap: https://website.com/profiles-sitemap.xml
 robot.AddSitemapUrl("https://website.com/profiles-sitemap.xml")
 
-//Generate Robots Container to String/text.
+//Generate Robots Container to String.
 robottxt := robot.RobotGenerateString()
 ```
 
@@ -83,7 +118,6 @@ Allow: /url3
 
 Disallow: /admin/*
 Disallow: /blog/admin$
-
 Sitemap: https://website.com/blog-sitemap.xml
 Sitemap: https://website.com/profiles-sitemap.xml
 ```
