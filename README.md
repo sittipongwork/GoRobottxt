@@ -58,7 +58,7 @@ robot.AddAllowUrl("/url3/*")
 //Disallow: /admin/*
 robot.AddDisallowUrl("/admin/*")
 //You can add more than one. Example
-//robot.AddDisallowUrl("/disallowurl")
+robot.AddDisallowUrl("/blog/admin$")
 
 //Add Sitemap Url Website.
 //That will be ...
@@ -82,6 +82,7 @@ Allow: /url2
 Allow: /url3
 
 Disallow: /admin/*
+Disallow: /blog/admin$
 
 Sitemap: https://website.com/blog-sitemap.xml
 Sitemap: https://website.com/profiles-sitemap.xml
